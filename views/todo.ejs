@@ -1,0 +1,55 @@
+<div class="container">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sno</th>
+          <th scope="col">Title</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Completed</th>
+          <th scope="col">
+            Delete Todo
+          </th>
+          <th scope="col">
+            Edit Todo
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+    
+
+          <% if (todos && todos.length > 0) { %>
+            
+                <% todos.forEach((todo,index) => { %>
+                  <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td> <%=  todo.title   %></tdt>
+              <td> <%=  todo.priority   %></td>
+              <td><%=  todo.completed   %></td>
+              <td>
+                <form action="/todo/deleteTodo/<%= todo.id %>" method="post">
+                <button type="submit" class="button bg-danger btn-outline-secondary border-0">Delete Todo</button>
+              </form>
+            </td>
+            <td>
+              <form action="/todo/edit/<%= todo.id %>" method="get">
+                <button class="button bg-outline-none bg-warning border-0">Edit Todo</button>
+              </form>
+
+            </td>
+            </tr>
+                  
+                <% }) %>
+                
+         
+        <% }  else { %>
+          <tr>
+              <td colspan="4" class="text-center">No todos yet!</td>
+          </tr>
+      <% } %>
+          
+        
+       
+      </tbody>
+    </table>
+  </div>

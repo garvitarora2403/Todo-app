@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+  <%- include('./partials/head') %>
+</head>
+<body>
+  
+  <%- include('./partials/nav') %>
+
+  <div class="container mt-3">
+    <h1>Todo Task</h1>
+        <form action="/todo/updateTodo/<%=todo._id %>" method="post">
+
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"  id="title" value="<%= todo.title %>" name="title">
+              <button class="btn  btn-outline-secondary" type="submit"> Update Todo</button>
+            </div>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="priority">Priority</label>
+                <select class="form-select" id="priority" name="priority" value="<%= todo.priority %>">
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+
+              <div class="input-group mb-2">
+                <label class="input-group-text" for="completed" value="<%= todo.completed %>">Completed</label>
+                <select class="form-select" id="completed" name="completed">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+              
+           
+        </form>
+
+        
+  </div>
+  <%- include('./partials/scripts') %>
+
+</body>
+</html>

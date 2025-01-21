@@ -1,0 +1,35 @@
+<div class="container mt-3">
+    <h1>Todo Task</h1>
+        <form action="/todo/add" method="post">
+
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"  id="title" placeholder="Enter Task" name="title">
+              <button class="btn  btn-outline-secondary" type="submit"> Add Todo</button>
+            </div>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="priority">Priority</label>
+                <select class="form-select" id="priority" name="priority">
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+
+              <div class="input-group mb-2">
+                <label class="input-group-text" for="completed">Completed</label>
+                <select class="form-select" id="completed" name="completed">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+              
+           
+        </form>
+
+        <% if (locals.errorMessage) { %>
+          <script type="text/javascript">
+              alert("<%= errorMessage %>");
+          </script>
+      <% } %>
+      
+  </div>
